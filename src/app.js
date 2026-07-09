@@ -24,6 +24,7 @@ const {
 const { createHealthRouter } = require('./routes/healthRoutes');
 const { createImportRouter } = require('./routes/importRoutes');
 const { createMappingRouter } = require('./routes/mappingRoutes');
+const { createImportExecuteRouter } = require('./routes/importExecuteRoutes');
 const { sendError } = require('./utils/response');
 const ERROR_CODES = require('./constants/errorCodes');
 
@@ -54,6 +55,7 @@ app.use('/api/', createRateLimiter());
 app.use('/api/v1', createHealthRouter());
 app.use('/api/v1', createImportRouter());
 app.use('/api/v1', createMappingRouter());
+app.use('/api/v1', createImportExecuteRouter());
 
 // ---------------------------------------------------------------------------
 // 404 handler — catch unmatched routes
