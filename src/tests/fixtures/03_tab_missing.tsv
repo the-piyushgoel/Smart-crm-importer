@@ -1,0 +1,16 @@
+first_name	last_name	email	phone	company	status
+Alice	Taylor		+1-711-279-4892	Hooli	Qualified
+Charlie	Smith	charlie.smith@massive.com		Massive Dynamic	Won
+Charlie	Johnson	charlie.johnson@cyberdyne.com		Cyberdyne	Contacted
+George	Brown	george.brown@stark.com	+1-641-265-8990	Stark Industries	Qualified
+Jane	Smith	jane.smith@cyberdyne.com	+1-751-357-8731	Cyberdyne	Lost
+Charlie	Moore	charlie.moore@stark.com		Stark Industries	Qualified
+Jane	Moore	jane.moore@acme.com		Acme Corp	Contacted
+Alice	Davis	alice.davis@umbrella.com	+1-742-269-3766	Umbrella Corp	Contacted
+Jane	Doe		+1-457-754-9646	Initech	Lost
+Diana	Johnson	diana.johnson@hooli.com	+1-261-878-1739	Hooli	Qualified
+Jane	Miller		+1-686-212-3489	Acme Corp	Won
+George	Taylor		+1-549-484-4569	Pied Piper	New
+Fiona	Davis	fiona.davis@pied.com	+1-440-591-1260	Pied Piper	Lost
+Charlie	Davis			Pied Piper	New
+John	Moore	john.moore@acme.com		Acme Corp	Won

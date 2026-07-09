@@ -1,0 +1,31 @@
+first_name,last_name,email,phone,company,status
+Charlie,Anderson,charlie.anderson@wayne.com,+1-420-374-5445,Wayne Enterprises,Won
+Hannah,Brown,hannah.brown@cyberdyne.com,+1-560-288-2516,Cyberdyne,Contacted
+Alice,Anderson,alice.anderson@pied.com,+1-724-300-4014,Pied Piper,Won
+Fiona,Doe,fiona.doe@cyberdyne.com,+1-203-488-1149,Cyberdyne,New
+Alice,Davis,alice.davis@massive.com,+1-877-279-1171,Massive Dynamic,Won
+Alice,Wilson,alice.wilson@pied.com,+1-526-762-4777,Pied Piper,Won
+Hannah,Johnson,hannah.johnson@initech.com,+1-960-898-9059,Initech,Won
+Alice,Davis,alice.davis@stark.com,+1-353-783-8210,Stark Industries,Won
+Fiona,Johnson,fiona.johnson@stark.com,+1-804-419-8615,Stark Industries,Lost
+John,Brown,john.brown@umbrella.com,+1-502-443-2364,Umbrella Corp,Lost
+Bob,Doe,bob.doe@massive.com,+1-259-361-7642,Massive Dynamic,Lost
+Ethan,Wilson,ethan.wilson@initech.com,+1-798-914-4018,Initech,Lost
+George,Anderson,george.anderson@acme.com,+1-955-282-9033,Acme Corp,Qualified
+Hannah,Taylor,hannah.taylor@stark.com,+1-504-454-4257,Stark Industries,Won
+Alice,Smith,alice.smith@hooli.com,+1-706-460-3635,Hooli,Won
+ Bob , Doe  ,  bob.doe@pied.com ,+1-809-628-3302 , Pied Piper , Won 
+ Fiona , Moore  ,  fiona.moore@massive.com ,+1-873-459-8851 , Massive Dynamic , Contacted 
+ John , Doe  ,  john.doe@acme.com ,+1-638-440-2317 , Acme Corp , New 
+ George , Miller  ,  george.miller@stark.com ,+1-565-436-9698 , Stark Industries , Contacted 
+ George , Johnson  ,  george.johnson@hooli.com ,+1-586-451-9441 , Hooli , Contacted 
+ Hannah , Miller  ,  hannah.miller@wayne.com ,+1-588-557-8747 , Wayne Enterprises , New 
+ George , Davis  ,  george.davis@massive.com ,+1-422-497-6981 , Massive Dynamic , Lost 
+ John , Anderson  ,  john.anderson@stark.com ,+1-674-519-1731 , Stark Industries , New 
+ John , Brown  ,  john.brown@massive.com ,+1-614-545-9485 , Massive Dynamic , Won 
+ Hannah , Taylor  ,  hannah.taylor@wayne.com ,+1-339-379-7024 , Wayne Enterprises , Qualified 
+ Diana , Miller  ,  diana.miller@pied.com ,+1-367-378-6551 , Pied Piper , Contacted 
+ Alice , Taylor  ,  alice.taylor@pied.com ,+1-251-286-4432 , Pied Piper , Won 
+ Fiona , Davis  ,  fiona.davis@wayne.com ,+1-411-272-7541 , Wayne Enterprises , Qualified 
+ Jane , Johnson  ,  jane.johnson@massive.com ,+1-440-246-4346 , Massive Dynamic , Lost 
+ Charlie , Wilson  ,  charlie.wilson@cyberdyne.com ,+1-651-709-7535 , Cyberdyne , Lost 

@@ -1,0 +1,16 @@
+first_name,last_name,email,phone,company,status
+Jane,Miller,jane.miller@wayne.com,+1-262-772-6415,Wayne Enterprises,New
+Fiona,Wilson,fiona.wilson@umbrella.com,+1-967-284-8850,Umbrella Corp,Won
+Diana,Davis,diana.davis@acme.com,+1-456-659-2501,Acme Corp,Lost
+Hannah,Davis,hannah.davis@initech.com,+1-441-763-8660,Initech,,Won
+Fiona,Smith,fiona.smith@pied.com,+1-444-739-2272,Pied Piper,Qualified
+Diana,Wilson,diana.wilson@pied.com,+1-435-287-1401,Pied Piper,Qualified
+Bob,Anderson,bob.anderson@acme.com,+1-773-565-5897,Acme Corp,Contacted
+Charlie,Johnson,charlie.johnson@hooli.com,+1-565-476-3213,"Broken Hooli,Lost
+Fiona,Doe,fiona.doe@stark.com,+1-351-956-7068,Stark Industries,Won
+John,Smith,john.smith@initech.com,+1-470-846-3708,Initech,Contacted
+John,Taylor,john.taylor@initech.com,+1-934-275-4305,Initech,New
+John,Doe
+Alice,Doe,alice.doe@hooli.com,+1-869-299-3682,Hooli,New
+Ethan,Smith,ethan.smith@wayne.com,+1-698-756-2686,Wayne Enterprises,New
+Bob,Johnson,bob.johnson@cyberdyne.com,+1-808-256-1932,Cyberdyne,Qualified

@@ -18,7 +18,7 @@ const LIMITS = Object.freeze({
   MAX_ROW_COUNT: 50000,
 
   /** Number of rows returned in a preview response */
-  MAX_PREVIEW_ROWS: 10,
+  MAX_PREVIEW_ROWS: 25,
 
   /** Rate-limit sliding window duration (15 minutes) */
   RATE_LIMIT_WINDOW_MS: 15 * 60 * 1000,

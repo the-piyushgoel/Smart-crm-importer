@@ -1,0 +1,16 @@
+first_name,last_name,email,email,phone,company,status
+Fiona,Moore,fiona.moore@hooli.com,fiona.moore@hooli.com,+1-225-376-3230,Hooli,New
+Charlie,Taylor,charlie.taylor@hooli.com,charlie.taylor@hooli.com,+1-500-291-8402,Hooli,New
+Hannah,Doe,hannah.doe@umbrella.com,hannah.doe@umbrella.com,+1-941-234-8605,Umbrella Corp,Qualified
+Charlie,Anderson,charlie.anderson@stark.com,charlie.anderson@stark.com,+1-566-219-1870,Stark Industries,New
+George,Moore,george.moore@massive.com,george.moore@massive.com,+1-269-891-4114,Massive Dynamic,New
+Hannah,Brown,hannah.brown@cyberdyne.com,hannah.brown@cyberdyne.com,+1-427-970-9530,Cyberdyne,Lost
+Fiona,Davis,fiona.davis@stark.com,fiona.davis@stark.com,+1-433-488-4434,Stark Industries,New
+Hannah,Brown,hannah.brown@pied.com,hannah.brown@pied.com,+1-669-608-5527,Pied Piper,Lost
+John,Wilson,john.wilson@stark.com,john.wilson@stark.com,+1-722-518-1766,Stark Industries,New
+Jane,Johnson,jane.johnson@umbrella.com,jane.johnson@umbrella.com,+1-748-615-8161,Umbrella Corp,Won
+Bob,Miller,bob.miller@pied.com,bob.miller@pied.com,+1-928-351-4986,Pied Piper,Won
+Bob,Moore,bob.moore@wayne.com,bob.moore@wayne.com,+1-754-531-5388,Wayne Enterprises,Won
+Charlie,Anderson,charlie.anderson@massive.com,charlie.anderson@massive.com,+1-467-453-1999,Massive Dynamic,New
+Hannah,Doe,hannah.doe@pied.com,hannah.doe@pied.com,+1-370-578-6247,Pied Piper,Qualified
+Fiona,Davis,fiona.davis@wayne.com,fiona.davis@wayne.com,+1-944-442-1372,Wayne Enterprises,New

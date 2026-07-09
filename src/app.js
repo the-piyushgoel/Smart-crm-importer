@@ -22,6 +22,7 @@ const {
   createErrorHandler,
 } = require('./middlewares');
 const { createHealthRouter } = require('./routes/healthRoutes');
+const { createImportRouter } = require('./routes/importRoutes');
 const { sendError } = require('./utils/response');
 const ERROR_CODES = require('./constants/errorCodes');
 
@@ -50,6 +51,7 @@ app.use('/api/', createRateLimiter());
 // ---------------------------------------------------------------------------
 
 app.use('/api/v1', createHealthRouter());
+app.use('/api/v1', createImportRouter());
 
 // ---------------------------------------------------------------------------
 // 404 handler — catch unmatched routes

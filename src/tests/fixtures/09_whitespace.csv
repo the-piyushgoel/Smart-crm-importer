@@ -1,0 +1,16 @@
+first_name , last_name , email , phone , company , status
+ Fiona , Moore  ,  fiona.moore@massive.com ,+1-873-459-8851 , Massive Dynamic , Contacted 
+ Bob , Doe  ,  bob.doe@pied.com ,+1-809-628-3302 , Pied Piper , Won 
+ John , Doe  ,  john.doe@acme.com ,+1-638-440-2317 , Acme Corp , New 
+ George , Miller  ,  george.miller@stark.com ,+1-565-436-9698 , Stark Industries , Contacted 
+ George , Johnson  ,  george.johnson@hooli.com ,+1-586-451-9441 , Hooli , Contacted 
+ Hannah , Miller  ,  hannah.miller@wayne.com ,+1-588-557-8747 , Wayne Enterprises , New 
+ George , Davis  ,  george.davis@massive.com ,+1-422-497-6981 , Massive Dynamic , Lost 
+ John , Anderson  ,  john.anderson@stark.com ,+1-674-519-1731 , Stark Industries , New 
+ John , Brown  ,  john.brown@massive.com ,+1-614-545-9485 , Massive Dynamic , Won 
+ Hannah , Taylor  ,  hannah.taylor@wayne.com ,+1-339-379-7024 , Wayne Enterprises , Qualified 
+ Diana , Miller  ,  diana.miller@pied.com ,+1-367-378-6551 , Pied Piper , Contacted 
+ Alice , Taylor  ,  alice.taylor@pied.com ,+1-251-286-4432 , Pied Piper , Won 
+ Fiona , Davis  ,  fiona.davis@wayne.com ,+1-411-272-7541 , Wayne Enterprises , Qualified 
+ Jane , Johnson  ,  jane.johnson@massive.com ,+1-440-246-4346 , Massive Dynamic , Lost 
+ Charlie , Wilson  ,  charlie.wilson@cyberdyne.com ,+1-651-709-7535 , Cyberdyne , Lost 

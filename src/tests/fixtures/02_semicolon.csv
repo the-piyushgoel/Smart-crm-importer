@@ -1,0 +1,16 @@
+first_name;last_name;email;phone;company;status
+John;Wilson;john.wilson@cyberdyne.com;+1-479-222-9679;Cyberdyne;Contacted
+Bob;Brown;bob.brown@stark.com;+1-261-477-8284;Stark Industries;Won
+Bob;Brown;bob.brown@hooli.com;+1-590-732-6436;Hooli;New
+Charlie;Moore;charlie.moore@wayne.com;+1-689-432-1344;Wayne Enterprises;New
+George;Davis;george.davis@massive.com;+1-393-907-3331;Massive Dynamic;Lost
+Jane;Johnson;jane.johnson@acme.com;+1-950-723-4989;Acme Corp;Qualified
+Charlie;Smith;charlie.smith@globex.com;+1-949-347-6301;Globex;New
+Fiona;Brown;fiona.brown@cyberdyne.com;+1-299-587-8305;Cyberdyne;Qualified
+Fiona;Wilson;fiona.wilson@globex.com;+1-272-385-8759;Globex;Contacted
+George;Johnson;george.johnson@pied.com;+1-755-935-9578;Pied Piper;Won
+Fiona;Davis;fiona.davis@pied.com;+1-214-459-6342;Pied Piper;Lost
+Hannah;Anderson;hannah.anderson@cyberdyne.com;+1-493-697-9586;Cyberdyne;Won
+George;Moore;george.moore@initech.com;+1-731-797-4796;Initech;Contacted
+Alice;Taylor;alice.taylor@wayne.com;+1-335-578-9574;Wayne Enterprises;Won
+Charlie;Johnson;charlie.johnson@cyberdyne.com;+1-993-928-1322;Cyberdyne;Won

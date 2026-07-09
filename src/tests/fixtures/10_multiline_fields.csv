@@ -1,0 +1,20 @@
+first_name,last_name,email,phone,company,status
+John,Wilson,john.wilson@cyberdyne.com,+1-786-494-7800,"Cyberdyne
+Inc.",Contacted
+Jane,Miller,jane.miller@wayne.com,+1-854-725-5292,Wayne Enterprises,Lost
+Charlie,Wilson,charlie.wilson@initech.com,+1-901-939-1685,Initech,Qualified
+Fiona,Smith,fiona.smith@umbrella.com,+1-294-381-5779,Umbrella Corp,Won
+Ethan,Johnson,ethan.johnson@cyberdyne.com,+1-360-325-6423,"Cyberdyne
+Inc.",New
+Hannah,Smith,hannah.smith@acme.com,+1-375-743-9249,Acme Corp,Contacted
+Bob,Doe,bob.doe@globex.com,+1-958-519-6789,Globex,Contacted
+Ethan,Moore,ethan.moore@cyberdyne.com,+1-337-267-9809,Cyberdyne,Qualified
+Ethan,Taylor,ethan.taylor@initech.com,+1-408-671-6967,"Initech
+Inc.",Qualified
+Diana,Smith,diana.smith@globex.com,+1-403-469-8383,Globex,Contacted
+Charlie,Moore,charlie.moore@wayne.com,+1-832-430-7369,Wayne Enterprises,Qualified
+Diana,Doe,diana.doe@hooli.com,+1-741-677-4734,Hooli,Contacted
+Fiona,Johnson,fiona.johnson@cyberdyne.com,+1-456-451-2249,"Cyberdyne
+Inc.",Won
+Ethan,Brown,ethan.brown@cyberdyne.com,+1-956-258-5930,Cyberdyne,New
+John,Miller,john.miller@hooli.com,+1-225-676-5378,Hooli,New

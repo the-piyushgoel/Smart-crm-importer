@@ -1,0 +1,16 @@
+FName,LName,MailAddress,Telephone,Organization,LeadStatus
+Diana,Taylor,diana.taylor@acme.com,+1-391-225-3895,Acme Corp,Qualified
+John,Johnson,john.johnson@pied.com,+1-992-259-8377,Pied Piper,Contacted
+Hannah,Moore,hannah.moore@pied.com,+1-528-412-9025,Pied Piper,Lost
+George,Miller,george.miller@stark.com,+1-783-243-4515,Stark Industries,Lost
+John,Anderson,john.anderson@stark.com,+1-828-619-1429,Stark Industries,Qualified
+Charlie,Smith,charlie.smith@hooli.com,+1-922-905-8096,Hooli,Contacted
+Bob,Wilson,bob.wilson@hooli.com,+1-389-320-4449,Hooli,Qualified
+Charlie,Anderson,charlie.anderson@pied.com,+1-594-573-5069,Pied Piper,Qualified
+Hannah,Brown,hannah.brown@stark.com,+1-515-485-9041,Stark Industries,Won
+George,Wilson,george.wilson@massive.com,+1-963-855-4469,Massive Dynamic,Qualified
+Bob,Doe,bob.doe@initech.com,+1-485-370-6405,Initech,Won
+John,Wilson,john.wilson@cyberdyne.com,+1-661-549-7164,Cyberdyne,Contacted
+George,Johnson,george.johnson@hooli.com,+1-871-350-1152,Hooli,Qualified
+John,Davis,john.davis@umbrella.com,+1-407-243-7716,Umbrella Corp,Qualified
+Charlie,Davis,charlie.davis@massive.com,+1-858-450-4595,Massive Dynamic,Lost
