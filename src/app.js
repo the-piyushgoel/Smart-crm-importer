@@ -26,6 +26,8 @@ const { createImportRouter } = require('./routes/importRoutes');
 const { createMappingRouter } = require('./routes/mappingRoutes');
 const { createImportExecuteRouter } = require('./routes/importExecuteRoutes');
 const { sendError } = require('./utils/response');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./config/swagger');
 const ERROR_CODES = require('./constants/errorCodes');
 
 // ---------------------------------------------------------------------------
@@ -56,6 +58,14 @@ app.use('/api/v1', createHealthRouter());
 app.use('/api/v1', createImportRouter());
 app.use('/api/v1', createMappingRouter());
 app.use('/api/v1', createImportExecuteRouter());
+
+// ---------------------------------------------------------------------------
+// Swagger API Documentation
+// ---------------------------------------------------------------------------
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  customSiteTitle: 'GrowEasy API Docs'
+}));
 
 // ---------------------------------------------------------------------------
 // 404 handler — catch unmatched routes

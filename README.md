@@ -97,7 +97,16 @@ The backend exposes three core endpoints to manage the data pipeline:
 | `/api/v1/import/mapping` | `POST` | Accepts extracted headers and preview rows. Prompts an LLM to generate a CRM field mapping matrix. |
 | `/api/v1/import/execute` | `POST` | Accepts the final user-approved mapping and raw data. Transforms, sanitizes, and runs validation rules to prepare the payload for database ingestion. |
 
-*(Detailed API request/response schemas are available via the Swagger UI — see Documentation section below).*
+### 📚 Interactive API Docs (Swagger)
+
+The backend features auto-generated interactive OpenAPI/Swagger documentation.
+
+Once the backend is running, navigate to:  
+👉 **`http://localhost:3000/api-docs`**
+
+Here you can view complete request schemas, test endpoints directly from the browser, and review standardized error responses (400, 422, 500).
+
+*(Screenshot Placeholder: Swagger UI Dashboard)*
 
 ---
 
