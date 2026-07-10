@@ -1,0 +1,5 @@
+first_name,last_name,email,phone,company,job_title,city,state,country,industry,status,lead_source
+Alice,Smith,alice@techcorp.com,555-0100,TechCorp,Engineer,Seattle,WA,USA,Technology,new,website
+Bob,Jones,bob@buildco.com,555-0101,BuildCo,Manager,Chicago,IL,USA,Construction,contacted,referral
+Charlie,Brown,charlie@webdev.net,555-0102,WebDev,Designer,Austin,TX,USA,IT,qualified,social_media
+Diana,Prince,diana@amazon.org,,Amazonia,CEO,New York,NY,USA,Retail,won,event

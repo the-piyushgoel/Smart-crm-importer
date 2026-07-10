@@ -1,0 +1,97 @@
+{
+  "info": {
+    "name": "GrowEasy API",
+    "description": "API collection for GrowEasy CSV Importer.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "health"]
+        }
+      }
+    },
+    {
+      "name": "Import",
+      "item": [
+        {
+          "name": "1. Preview CSV",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/import/preview",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "import", "preview"]
+            }
+          }
+        },
+        {
+          "name": "2. Generate Mapping",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"headers\": [\"First Name\", \"Last Name\", \"Email Address\"],\n  \"sample_rows\": [[\"John\", \"Doe\", \"john@example.com\"]]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/import/mapping",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "import", "mapping"]
+            }
+          }
+        },
+        {
+          "name": "3. Execute Import",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mapping\": [\n    { \"uploaded_field\": \"First Name\", \"mapped_field\": \"first_name\" },\n    { \"uploaded_field\": \"Last Name\", \"mapped_field\": \"last_name\" },\n    { \"uploaded_field\": \"Email Address\", \"mapped_field\": \"email\" }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/import/execute",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "import", "execute"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}

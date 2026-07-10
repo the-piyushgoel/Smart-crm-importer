@@ -1,276 +1,170 @@
-<div align="center">
-  <h1>🚀 GrowEasy AI-Powered CSV Importer</h1>
-  <p>
-    <img src="https://img.shields.io/github/actions/workflow/status/USERNAME/REPOSITORY/ci.yml?branch=main&label=Build%20Status&style=flat-square" alt="Build Status Placeholder" />
-  </p>
-  <p><strong>A production-ready, highly scalable, and intelligent data migration pipeline.</strong></p>
-  <p>Seamlessly map, validate, and import messy CSV datasets into standard CRM formats using Large Language Models (LLMs).</p>
-</div>
+# 🚀 GrowEasy AI CSV Importer
 
-<br />
+![GrowEasy Banner](https://via.placeholder.com/1200x300.png?text=GrowEasy+AI+CSV+Importer)
 
-## 🌟 Overview
-
-The GrowEasy CSV Importer solves one of the most frustrating aspects of B2B SaaS onboarding: messy data imports. Instead of forcing users to manually map dozens of columns, this engine leverages LLMs (Anthropic Claude, Google Gemini, or OpenAI) to heuristically analyze CSV structures, sample rows, and contextually map them to a strict CRM target schema.
-
-Built with a clean Node.js/Express backend and a highly responsive React/Vite frontend wizard.
+> A modern, AI-powered CSV import wizard that effortlessly maps any uploaded spreadsheet to your CRM using LLM semantics, eliminating manual data entry headers mapping.
 
 ---
 
 ## ✨ Features
 
-- **Multi-Step Wizard UX**: A polished, step-by-step React interface with accessibility (`aria` standards) and keyboard navigation.
-- **Smart AI Header Mapping**: Uses LLM JSON-mode parsing to match arbitrary headers (e.g., `Client First Name`) to strictly typed CRM schemas (e.g., `first_name`) along with confidence scoring.
-- **Robust Pipeline Architecture**: Streams large files to disk via Multer, validates structure dynamically, and runs strict normalization checks (Phone/Email sanitization, Rule 7 validations).
-- **Graceful Error Handling**: Fallbacks to heuristic text-matching if the AI provider times out or hits rate limits.
-- **Performance First**: Implements `React.lazy` component chunking, `useMemo` optimizations, and sticky headers for visualizing large datasets.
+- **🤖 AI-Powered Mapping:** Automatically maps chaotic CSV columns to standardized CRM fields using semantic analysis (Anthropic Claude).
+- **⚡ High-Performance Streaming:** Parses massive CSV files using Node.js Streams without memory bloat.
+- **🛡️ Rock-Solid Validation:** Robust business rule enforcement (Joi) with detailed field-level error reporting.
+- **🎨 Modern UI/UX:** A stunning, fully responsive React wizard built with accessibility (A11y) and keyboard navigation in mind.
+- **🐳 Docker Ready:** Full multi-stage Docker & Docker Compose setup for production deployments.
+- **📚 API Documentation:** Built-in Swagger UI for exploring the REST API.
+- **🧪 Fully Tested:** Comprehensive test suite for both frontend and backend (Jest, Vitest, React Testing Library).
 
 ---
 
 ## 🏗️ Architecture
 
-The system decouples data ingestion, mapping intelligence, and execution into an orchestrated pipeline. 
-
 ```mermaid
-flowchart TD
-    %% Define styles
-    classDef client fill:#3b82f6,stroke:#1e40af,color:#fff,stroke-width:2px;
-    classDef api fill:#10b981,stroke:#047857,color:#fff,stroke-width:2px;
-    classDef service fill:#6366f1,stroke:#4338ca,color:#fff,stroke-width:2px;
-    classDef ext fill:#f59e0b,stroke:#b45309,color:#fff,stroke-width:2px;
-
-    %% Nodes
-    A[Client React App]:::client
-    B[Express Controller Layer]:::api
-    C[CSV Stream Parser]:::service
-    D[AI Provider Factory]:::service
-    E[Execution Engine]:::service
-    F[LLM Provider]:::ext
-
-    %% Flow
-    A -- "1. Uploads File (Buffer)" --> B
-    B -- "2. Streams to parser" --> C
-    C -- "3. Returns Layout & Preview Rows" --> B
-    B -- "4. Returns /preview" --> A
+sequenceDiagram
+    participant User
+    participant Frontend
+    participant API
+    participant AI Provider
     
-    A -- "5. Requests /mapping" --> B
-    B -- "6. Delegates payload" --> D
-    D -- "7. Prompts" --> F
-    F -- "8. JSON Mapping Response" --> D
-    D -- "9. Returns /mapping" --> A
+    User->>Frontend: Uploads CSV
+    Frontend->>API: POST /api/v1/import/preview (multipart/form-data)
+    API-->>Frontend: 200 OK (headers, sample_rows)
     
-    A -- "10. User Confirms -> /execute" --> B
-    B -- "11. Delegates to Rules/Transformers" --> E
-    E -- "12. Final Normalized Dataset" --> B
-    B -- "13. Success Summary" --> A
+    Frontend->>API: POST /api/v1/import/mapping
+    API->>AI Provider: Prompt (headers, sample_rows, schema)
+    AI Provider-->>API: JSON Mappings
+    API-->>Frontend: 200 OK (AI Mappings with confidence)
+    
+    User->>Frontend: Reviews/Edits Mappings
+    Frontend->>API: POST /api/v1/import/execute (final mappings)
+    API->>API: Parse CSV stream
+    API->>API: Transform against schema
+    API->>API: Validate business rules
+    API-->>Frontend: 200 OK (Import Summary)
+```
+
+## 📂 Project Structure
+
+```
+d:\GrowEasy\
+├── client/                 # React SPA (Vite)
+│   ├── src/                # Frontend source code
+│   └── tests/              # Vitest & React Testing Library tests
+├── src/                    # Backend Node.js API
+│   ├── controllers/        # Express route controllers
+│   ├── services/           # Business logic & AI Integration
+│   └── ...                 
+├── tests/                  # Backend Jest tests
+├── examples/               # Sample CSV datasets
+├── docs/                   # Architecture diagrams
+├── postman/                # API collections
+├── docker-compose.yml      # Local dev orchestration
+└── README.md               # This file
 ```
 
 ---
 
-## 📂 Folder Structure
+## 🚀 Quick Start (Docker)
 
-```text
-GrowEasy/
-├── client/                 # React + Vite Frontend
-│   ├── src/
-│   │   ├── components/     # Wizard steps, Toasts, ErrorBoundary
-│   │   ├── hooks/          # Custom hooks (e.g. useApiRequest)
-│   │   ├── store/          # Zustand global state
-│   │   ├── services/       # API wrappers
-│   │   └── constants/      # Shared configs
-├── src/                    # Node.js + Express Backend
-│   ├── config/             # Env vars, constraints, limits
-│   ├── constants/          # CRM schemas, error codes
-│   ├── controllers/        # Express route handlers
-│   ├── middlewares/        # Error catching, Multer config
-│   ├── services/           # Business logic (CSV, AI, Import)
-│   └── utils/              # Winston logger, Custom error classes
-└── examples/               # Example datasets (Optional)
-```
+The easiest way to run the application is using Docker.
 
----
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/the-piyushgoel/Smart-crm-importer.git
+   cd Smart-crm-importer
+   ```
 
-## 🔌 API Overview
+2. **Configure Environment:**
+   Create a `.env` file in the root directory:
+   ```env
+   NODE_ENV=development
+   PORT=3000
+   CORS_ORIGIN=http://localhost:5173
+   AI_PROVIDER=claude
+   ANTHROPIC_API_KEY=your_api_key_here
+   ```
 
-The backend exposes three core endpoints to manage the data pipeline:
+3. **Start the containers:**
+   ```bash
+   docker-compose up --build
+   ```
 
-| Endpoint | Method | Purpose |
-|----------|--------|---------|
-| `/api/v1/import/preview` | `POST` | Accepts a multipart/form-data CSV. Streams the file, detects delimiter, and returns the first 10 rows. |
-| `/api/v1/import/mapping` | `POST` | Accepts extracted headers and preview rows. Prompts an LLM to generate a CRM field mapping matrix. |
-| `/api/v1/import/execute` | `POST` | Accepts the final user-approved mapping and raw data. Transforms, sanitizes, and runs validation rules to prepare the payload for database ingestion. |
-
-### 📚 Interactive API Docs (Swagger)
-
-The backend features auto-generated interactive OpenAPI/Swagger documentation.
-
-Once the backend is running, navigate to:  
-👉 **`http://localhost:3000/api-docs`**
-
-Here you can view complete request schemas, test endpoints directly from the browser, and review standardized error responses (400, 422, 500).
-
-*(Screenshot Placeholder: Swagger UI Dashboard)*
+4. **Access the application:**
+   - Frontend: `http://localhost:80`
+   - Backend API: `http://localhost:3000`
+   - Swagger Docs: `http://localhost:3000/api-docs`
 
 ---
 
-## 🚀 Installation & Local Development
+## 💻 Local Development
 
-### Prerequisites
-- Node.js (v18+)
-- npm or yarn
+To run the application locally without Docker:
 
-### 1. Clone & Install
+### Backend Setup
 ```bash
-git clone https://github.com/the_piyushgoel/groweasy.git
-cd groweasy
-
-# Install backend dependencies
+# Install dependencies
 npm install
 
-# Install frontend dependencies
-cd client && npm install
-```
-
-### 2. Environment Variables
-Create a `.env` file in the root directory (see `.env.example`).
-```env
-PORT=3000
-NODE_ENV=development
-CORS_ORIGIN=http://localhost:5173
-AI_PROVIDER=claude # Options: 'claude', 'openai', 'gemini'
-ANTHROPIC_API_KEY=your_api_key_here
-```
-
-### 3. Start the Servers
-Run these commands in separate terminals:
-```bash
-# Backend (from root directory)
+# Start development server
 npm run dev
 
-# Frontend (from client directory)
+# Run tests
+npm test
+```
+
+### Frontend Setup
+```bash
+cd client
+
+# Install dependencies
+npm install
+
+# Start Vite dev server
 npm run dev
-```
-The frontend will be available at `http://localhost:5173`.
 
----
-
-## 🐳 Docker Setup
-
-A complete `docker-compose` environment is provided for zero-config deployments. The frontend is built and served via a lightweight Nginx container, while the Node.js backend runs on Alpine.
-
-### 1. Build and Start Services
-```bash
-docker-compose up --build -d
-```
-```
-This will start both containers in detached mode:
-- **Frontend App:** `http://localhost:8080`
-- **Backend API:** `http://localhost:3000`
-
-### 2. Stop Services
-```bash
-docker-compose down
-```
-
-### 3. Rebuild Images
-If you make code changes and need to rebuild the images:
-```bash
-docker-compose build
-docker-compose up -d
+# Run tests
+npm test
 ```
 
 ---
 
-## 📸 Screenshots
+## 📖 API Documentation
 
-| Upload Step | AI Mapping Step | Summary Dashboard |
-|---|---|---|
-| *(Screenshot Placeholder: Drag and Drop UI)* | *(Screenshot Placeholder: AI Mapping Table with Confidence Badges)* | *(Screenshot Placeholder: Success stats, failed rows)* |
+Once the backend is running, you can access the Swagger UI documentation at:
+**[http://localhost:3000/api-docs](http://localhost:3000/api-docs)**
 
----
-
-## 📊 Example Datasets
-
-The repository includes test data to simulate real-world conditions. You can find these in the upcoming `examples/` directory:
-- `standard.csv`: Perfect data.
-- `semicolon.csv`: Verifies delimiter detection.
-- `malformed.csv`: Contains missing fields and broken quotes to test pipeline resilience.
+### Core Endpoints:
+- `POST /api/v1/import/preview`: Upload a CSV and extract headers/sample rows.
+- `POST /api/v1/import/mapping`: Generate AI-powered semantic mappings.
+- `POST /api/v1/import/execute`: Execute the import pipeline and validate data.
 
 ---
 
-## 🚢 Deployment
+## 📦 Sample Datasets
 
-GrowEasy can be deployed easily on modern cloud platforms. We provide pre-configured deployment manifests for Vercel, Railway, and Render.
-
-### Production Environment Variables
-
-Ensure these variables are configured in your production environments:
-
-- `PORT`: (Backend) Port for the server to listen on (e.g., 3000).
-- `NODE_ENV`: Should be set to `production`.
-- `CORS_ORIGIN`: (Backend) Must match your frontend's production URL (e.g., `https://my-app.vercel.app`).
-- `AI_PROVIDER`: The LLM provider to use (`claude`, `openai`, or `gemini`).
-- `ANTHROPIC_API_KEY`: Required if using Claude.
-- `OPENAI_API_KEY`: Required if using OpenAI.
-- `GEMINI_API_KEY`: Required if using Gemini.
-
-### Deploy Backend on Railway
-
-1. **Connect Repository:** Log into [Railway](https://railway.app/) and create a new project from your GitHub repository.
-2. **Auto-Detection:** Railway will automatically detect the `railway.json` configuration file at the root.
-3. **Configure Environment:** Go to the Variables tab and add your `PORT`, `NODE_ENV=production`, `CORS_ORIGIN` (pointing to your frontend URL), `AI_PROVIDER`, and your API keys.
-4. **Deploy:** Click Deploy. Railway will use Nixpacks to build and start the Node.js server. The healthcheck (`/api/v1/health`) will verify it's running.
-
-### Deploy Backend on Render
-
-1. **Connect Repository:** Log into [Render](https://render.com/) and create a new "Web Service".
-2. **Auto-Detection:** Render will detect the `render.yaml` Blueprint in your repository.
-3. **Select Blueprint:** Follow the prompts to deploy the services defined in the YAML file.
-4. **Configure Environment:** Render will prompt you for the API keys (`ANTHROPIC_API_KEY`, etc.) and `CORS_ORIGIN` that are marked as `sync: false` in the configuration.
-5. **Deploy:** Render will run `npm ci --only=production` and start the server.
-
-### Deploy Frontend on Vercel
-
-1. **Connect Repository:** Log into [Vercel](https://vercel.com/) and import your GitHub repository.
-2. **Configure Project:**
-   - **Framework Preset:** Vite
-   - **Root Directory:** `client`
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
-3. **API Configuration:** If your backend is hosted separately (e.g., on Railway), update the `API_BASE` in `client/src/services/api.js` to point to your backend's production URL (e.g., `https://my-backend.up.railway.app/api/v1`).
-4. **Deploy:** Click Deploy. Vercel will automatically read `vercel.json` to handle SPA routing (`index.html` rewrites) and aggressive asset caching.
-
-### Docker Deployment
-
-If you prefer managing your own infrastructure (VPS, AWS EC2, DigitalOcean), use the included Docker setup.
-
-```bash
-# Build and start the services in detached mode
-docker compose up --build -d
-```
-This spins up:
-- **Frontend (Nginx):** Port `80`
-- **Backend (Node):** Port `3000`
-
-To stop the services:
-```bash
-docker compose down
-```
+We've included several sample datasets in the `examples/` directory to help you test the application:
+- `employees.csv`: Standard dataset for testing mappings.
+- `malformed.csv`: Tests parsing robustness.
+- `duplicate_headers.csv`: Tests frontend validation constraints.
 
 ---
 
-## 🗺️ Future Improvements & Roadmap
-- [ ] Database integration (Postgres) for true persistence at the end of the `/execute` phase.
-- [ ] WebSocket integration for live progress streaming on massive CSV files (1M+ rows).
-- [ ] Implement a full Virtualized Table on the frontend for rendering 1000+ preview rows without DOM lag.
-- [ ] Add bulk row editing capability inside the Wizard.
+## 🚀 Deployment
+
+The repository includes production-ready deployment configurations:
+- **Vercel (`client/vercel.json`)**: For the frontend SPA.
+- **Railway (`railway.json`)**: For the backend Node.js API.
+- **GitHub Actions (`.github/workflows/ci.yml`)**: For continuous integration testing.
 
 ---
 
-## 🏆 Credits
-This project was developed to showcase an elegant, AI-driven approach to solving the complex data-mapping challenges faced during B2B software onboarding. Built by the GrowEasy Team.
+## 🔮 Roadmap
+
+- [ ] Support for Excel (`.xlsx`) files.
+- [ ] Real-time WebSocket progress updates for massive imports.
+- [ ] Save mapping templates for recurring uploads.
 
 ---
 
-## 📝 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Built with ❤️ by the Engineering Team.
