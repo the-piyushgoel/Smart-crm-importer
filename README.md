@@ -197,17 +197,62 @@ The repository includes test data to simulate real-world conditions. You can fin
 
 ## 🚢 Deployment
 
-### Frontend (Vercel)
-1. Import the repository into Vercel.
-2. Set the Root Directory to `client`.
-3. Vercel will automatically detect Vite and run `npm run build`.
+GrowEasy can be deployed easily on modern cloud platforms. We provide pre-configured deployment manifests for Vercel, Railway, and Render.
 
-### Backend (Render / Railway)
-1. Import the repository.
-2. Set Root Directory to `/`.
-3. Build Command: `npm install`
-4. Start Command: `node src/app.js`
-5. Ensure you inject your `AI_PROVIDER` and API keys in the platform's Environment Variables dashboard.
+### Production Environment Variables
+
+Ensure these variables are configured in your production environments:
+
+- `PORT`: (Backend) Port for the server to listen on (e.g., 3000).
+- `NODE_ENV`: Should be set to `production`.
+- `CORS_ORIGIN`: (Backend) Must match your frontend's production URL (e.g., `https://my-app.vercel.app`).
+- `AI_PROVIDER`: The LLM provider to use (`claude`, `openai`, or `gemini`).
+- `ANTHROPIC_API_KEY`: Required if using Claude.
+- `OPENAI_API_KEY`: Required if using OpenAI.
+- `GEMINI_API_KEY`: Required if using Gemini.
+
+### Deploy Backend on Railway
+
+1. **Connect Repository:** Log into [Railway](https://railway.app/) and create a new project from your GitHub repository.
+2. **Auto-Detection:** Railway will automatically detect the `railway.json` configuration file at the root.
+3. **Configure Environment:** Go to the Variables tab and add your `PORT`, `NODE_ENV=production`, `CORS_ORIGIN` (pointing to your frontend URL), `AI_PROVIDER`, and your API keys.
+4. **Deploy:** Click Deploy. Railway will use Nixpacks to build and start the Node.js server. The healthcheck (`/api/v1/health`) will verify it's running.
+
+### Deploy Backend on Render
+
+1. **Connect Repository:** Log into [Render](https://render.com/) and create a new "Web Service".
+2. **Auto-Detection:** Render will detect the `render.yaml` Blueprint in your repository.
+3. **Select Blueprint:** Follow the prompts to deploy the services defined in the YAML file.
+4. **Configure Environment:** Render will prompt you for the API keys (`ANTHROPIC_API_KEY`, etc.) and `CORS_ORIGIN` that are marked as `sync: false` in the configuration.
+5. **Deploy:** Render will run `npm ci --only=production` and start the server.
+
+### Deploy Frontend on Vercel
+
+1. **Connect Repository:** Log into [Vercel](https://vercel.com/) and import your GitHub repository.
+2. **Configure Project:**
+   - **Framework Preset:** Vite
+   - **Root Directory:** `client`
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+3. **API Configuration:** If your backend is hosted separately (e.g., on Railway), update the `API_BASE` in `client/src/services/api.js` to point to your backend's production URL (e.g., `https://my-backend.up.railway.app/api/v1`).
+4. **Deploy:** Click Deploy. Vercel will automatically read `vercel.json` to handle SPA routing (`index.html` rewrites) and aggressive asset caching.
+
+### Docker Deployment
+
+If you prefer managing your own infrastructure (VPS, AWS EC2, DigitalOcean), use the included Docker setup.
+
+```bash
+# Build and start the services in detached mode
+docker compose up --build -d
+```
+This spins up:
+- **Frontend (Nginx):** Port `80`
+- **Backend (Node):** Port `3000`
+
+To stop the services:
+```bash
+docker compose down
+```
 
 ---
 
