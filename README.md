@@ -118,7 +118,7 @@ Here you can view complete request schemas, test endpoints directly from the bro
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/yourusername/groweasy.git
+git clone https://github.com/the_piyushgoel/groweasy.git
 cd groweasy
 
 # Install backend dependencies
@@ -159,8 +159,9 @@ A complete `docker-compose` environment is provided for zero-config deployments.
 ```bash
 docker-compose up --build -d
 ```
+```
 This will start both containers in detached mode:
-- **Frontend App:** `http://localhost:80`
+- **Frontend App:** `http://localhost:8080`
 - **Backend API:** `http://localhost:3000`
 
 ### 2. Stop Services
