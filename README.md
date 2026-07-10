@@ -1,5 +1,8 @@
 <div align="center">
   <h1>🚀 GrowEasy AI-Powered CSV Importer</h1>
+  <p>
+    <img src="https://img.shields.io/github/actions/workflow/status/USERNAME/REPOSITORY/ci.yml?branch=main&label=Build%20Status&style=flat-square" alt="Build Status Placeholder" />
+  </p>
   <p><strong>A production-ready, highly scalable, and intelligent data migration pipeline.</strong></p>
   <p>Seamlessly map, validate, and import messy CSV datasets into standard CRM formats using Large Language Models (LLMs).</p>
 </div>

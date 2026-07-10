@@ -1,0 +1,89 @@
+name: GrowEasy Production CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Production Validation Pipeline
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      # 2. Setup Node environment
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            client/package-lock.json
+
+      # 3. Documentation Validation
+      - name: Verify Required Documentation Files
+        run: |
+          for file in README.md LICENSE CONTRIBUTING.md DEPLOYMENT_CHECKLIST.md; do
+            if [ ! -f "$file" ]; then
+              echo "Error: Required file $file is missing."
+              exit 1
+            fi
+          done
+          echo "All required documentation files exist."
+
+      # 4. Backend Validation
+      - name: Install Backend Dependencies
+        run: npm ci
+
+      - name: Verify Backend Starts & Health Endpoint
+        run: |
+          # Start the backend in the background
+          npm start &
+          PID=$!
+          
+          # Wait for the server to start (poll every 2s, up to 30s)
+          echo "Waiting for backend health endpoint..."
+          timeout 30 bash -c 'until curl -s http://localhost:3000/api/v1/health | grep -q "\"status\":\"UP\""; do sleep 2; done'
+          
+          if [ $? -eq 0 ]; then
+            echo "Backend successfully started and healthcheck passed."
+          else
+            echo "Backend healthcheck failed."
+            kill $PID
+            exit 1
+          fi
+          
+          # Gracefully kill the background process
+          kill $PID
+
+      # 5. Frontend Validation
+      - name: Install Frontend Dependencies
+        working-directory: ./client
+        run: npm ci
+
+      - name: Build Frontend Application
+        working-directory: ./client
+        run: npm run build
+
+      # 6. Artifact Upload
+      - name: Upload Frontend Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: groweasy-frontend-dist
+          path: client/dist
+          retention-days: 7
+
+      # 7. Docker Validation
+      - name: Validate Docker Compose Configuration
+        run: docker compose config
+
+      - name: Build Docker Images
+        run: docker compose build
