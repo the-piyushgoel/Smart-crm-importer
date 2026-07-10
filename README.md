@@ -1,7 +1,5 @@
 # 🚀 GrowEasy AI CSV Importer
 
-![GrowEasy Banner](https://via.placeholder.com/1200x300.png?text=GrowEasy+AI+CSV+Importer)
-
 > A modern, AI-powered CSV import wizard that effortlessly maps any uploaded spreadsheet to your CRM using LLM semantics, eliminating manual data entry headers mapping.
 
 ---
@@ -91,7 +89,7 @@ The easiest way to run the application is using Docker.
    ```
 
 4. **Access the application:**
-   - Frontend: `http://localhost:80`
+   - Frontend: `http://localhost:8080`
    - Backend API: `http://localhost:3000`
    - Swagger Docs: `http://localhost:3000/api-docs`
 
@@ -166,5 +164,3 @@ The repository includes production-ready deployment configurations:
 - [ ] Save mapping templates for recurring uploads.
 
 ---
-
-Built with ❤️ by the Engineering Team.
