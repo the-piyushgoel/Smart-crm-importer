@@ -10,21 +10,27 @@ const envSchema = Joi.object({
   AI_PROVIDER: Joi.string()
     .valid('claude', 'gemini', 'openai')
     .default('claude'),
-  ANTHROPIC_API_KEY: Joi.string().when('AI_PROVIDER', {
+  ANTHROPIC_API_KEY: Joi.string()
+  .allow('')
+  .when('AI_PROVIDER', {
     is: 'claude',
     then: Joi.required(),
     otherwise: Joi.optional(),
   }),
-  OPENAI_API_KEY: Joi.string().when('AI_PROVIDER', {
-    is: 'openai',
-    then: Joi.required(),
-    otherwise: Joi.optional(),
-  }),
-  GEMINI_API_KEY: Joi.string().when('AI_PROVIDER', {
-    is: 'gemini',
-    then: Joi.required(),
-    otherwise: Joi.optional(),
-  }),
+  OPENAI_API_KEY: Joi.string()
+    .allow('')
+    .when('AI_PROVIDER', {
+      is: 'openai',
+      then: Joi.required(),
+      otherwise: Joi.optional(),
+    }),
+  GEMINI_API_KEY: Joi.string()
+    .allow('')
+    .when('AI_PROVIDER', {
+      is: 'gemini',
+      then: Joi.required(),
+      otherwise: Joi.optional(),
+    }),
 })
   .unknown(true)
   .required();

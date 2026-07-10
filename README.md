@@ -155,12 +155,25 @@ The frontend will be available at `http://localhost:5173`.
 
 A complete `docker-compose` environment is provided for zero-config deployments. The frontend is built and served via a lightweight Nginx container, while the Node.js backend runs on Alpine.
 
+### 1. Build and Start Services
 ```bash
-# Build and start all services
 docker-compose up --build -d
 ```
-- App: `http://localhost:80`
-- API: `http://localhost:3000`
+This will start both containers in detached mode:
+- **Frontend App:** `http://localhost:80`
+- **Backend API:** `http://localhost:3000`
+
+### 2. Stop Services
+```bash
+docker-compose down
+```
+
+### 3. Rebuild Images
+If you make code changes and need to rebuild the images:
+```bash
+docker-compose build
+docker-compose up -d
+```
 
 ---
 
